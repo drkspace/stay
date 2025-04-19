@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# ruff: noqa: T201
 from stay import StayParser, Stayspace
 
 
@@ -16,7 +16,7 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    print(f"Hello {args.name}. You are {args.age} years old")  # noqa: T201
+    print(f"Hello {args.name}. You are {args.age} years old")
 
 if __name__ == "__main__":
     main()
