@@ -2,6 +2,8 @@
 
 **S**imple **T**yped **A**rgparse, **Y**es
 
+[![ruff-action](https://github.com/drkspace/stay/actions/workflows/ruff_action.yml/badge.svg?branch=main)](https://github.com/drkspace/stay/actions/workflows/ruff_action.yml)
+
 Add typing to your argparse CLIs.
 
 Example:
