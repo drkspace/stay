@@ -34,7 +34,7 @@ def base_parser() -> StayParser[Space1]:
     return parser
 
 
-def test_args(base_parser: StayParser[Space1]):
+def test_args(base_parser: StayParser[Space1]) -> None:
     args = base_parser.parse_args(split('--arg1 42 --arg2 true --arg3 "stay is awesome"'))
 
     assert args.arg1 == 42
@@ -42,7 +42,7 @@ def test_args(base_parser: StayParser[Space1]):
     assert args.arg3 == "stay is awesome"
 
 
-def test_valid_parent_parsers(base_parser: StayParser[Space1]):
+def test_valid_parent_parsers(base_parser: StayParser[Space1]) -> None:
     parser = StayParser(namespace_cls=Space2, parents=[base_parser])
 
     parser.add_argument("--foo", type=float)
@@ -55,6 +55,6 @@ def test_valid_parent_parsers(base_parser: StayParser[Space1]):
     assert args.foo == pytest.approx(3.14)
 
 
-def test_invalid_parent(base_parser: StayParser[Space1]):
+def test_invalid_parent(base_parser: StayParser[Space1]) -> None:
     with pytest.raises(InvalidParentParserError):
         StayParser(namespace_cls=Space3, parents=[base_parser])
