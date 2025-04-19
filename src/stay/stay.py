@@ -4,10 +4,12 @@ from typing import TYPE_CHECKING, Any, ClassVar, Generic, Optional, Sequence, Ty
 from typing_extensions import override
 
 _T = TypeVar("_T", bound="Stayspace")
-
+_U = TypeVar("_U", bound="Stayspace")
 
 class InvalidParentParserError(Exception):
-    def __init__(self, this_parser: "StayParser", parent_parser: "StayParser") -> None:
+    def __init__(self,
+                 this_parser: "StayParser[_T]",
+                 parent_parser: "StayParser[_U]") -> None:
         super().__init__(
             f"Incompatible parent parser {parent_parser}. "
             f"{parent_parser._namespace_cls} is not a superclass of {this_parser._namespace_cls}."  # noqa: SLF001
