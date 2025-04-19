@@ -4,6 +4,6 @@ __author__ = """Daniel Kramer"""
 __email__ = "drkspace@gmail.com"
 __version__ = "0.1.0"
 
-from .stay import StayParser, Stayspace, InvalidParentParserError
+from .stay import InvalidParentParserError, StayParser, Stayspace
 
-__all__ = ["StayParser", "Stayspace", "InvalidParentParserError"]
+__all__ = ["InvalidParentParserError", "StayParser", "Stayspace"]

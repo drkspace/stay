@@ -99,8 +99,14 @@ select = [
 
 ignore = [
   "FBT001",
-  "FBT002",
-  "ANN101"
+  "FBT002"
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+  "ANN201",
+  "S101",
+  "PLR2004"
 ]
 
 # Mypy

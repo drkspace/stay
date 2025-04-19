@@ -9,7 +9,8 @@ _T = TypeVar("_T", bound="Stayspace")
 class InvalidParentParserError(Exception):
     def __init__(self, this_parser: "StayParser", parent_parser: "StayParser") -> None:
         super().__init__(
-            f"Incompatable parent parser {parent_parser}. {parent_parser._namespace_cls} is not a superclass of {this_parser._namespace_cls}."
+            f"Incompatible parent parser {parent_parser}. "
+            f"{parent_parser._namespace_cls} is not a superclass of {this_parser._namespace_cls}."  # noqa: SLF001
         )
 
 
@@ -36,13 +37,13 @@ class StayParser(ArgumentParser, Generic[_T]):
         self._namespace_cls = namespace_cls
 
         for p in parents:
-            if isinstance(p, StayParser):
-                if not issubclass(self._namespace_cls, p._namespace_cls):
+            if isinstance(p, StayParser):  # noqa: SIM102
+                if not issubclass(self._namespace_cls, p._namespace_cls):  # noqa: SLF001
                     raise InvalidParentParserError(self, p)
 
     @override
-    def parse_args(
-        self,  # type: ignore
+    def parse_args( # type: ignore
+        self,
         args: Optional[Sequence[str]] = None,
         namespace: Optional[Type[_T]] = None,
     ) -> _T:

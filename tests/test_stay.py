@@ -2,10 +2,11 @@
 
 """Tests for `stay` package."""
 
-import pytest
 from shlex import split
 
-from stay import Stayspace, StayParser, InvalidParentParserError
+import pytest
+
+from stay import InvalidParentParserError, StayParser, Stayspace
 
 
 class Space1(Stayspace):
