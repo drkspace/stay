@@ -34,7 +34,7 @@ class StayParser(ArgumentParser, Generic[_T]):
         parents: Sequence[ArgumentParser] = [],  # Why python...
         **kwargs: Any,
     ) -> None:
-        super().__init__(*args, parents=parents, **kwargs)
+        super().__init__(*args, parents=parents, **kwargs) # type: ignore
 
         self._namespace_cls = namespace_cls
 
