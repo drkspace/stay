@@ -78,6 +78,7 @@ Ready to contribute? Here's how to set up `stay` for local development.
 
     $ cd stay/
     $ pip install ".[dev]"
+    $ make pre-commit-install
 
 4. Create a branch for local development::
 
@@ -97,6 +98,9 @@ Ready to contribute? Here's how to set up `stay` for local development.
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
+
+    There is also a pre-commit hook added to automatically run ruff and some other checks.
+    If there are any problems, fix them and try committing again.
 
 7. Submit a pull request through the GitHub website.
 
