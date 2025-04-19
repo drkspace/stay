@@ -56,4 +56,78 @@ No Hard feelings.
 
 ## Examples
 
-TODO
+Here are some examples.
+See [examples/](examples/) for the full set.
+
+### Simple Example
+
+```python
+#!/usr/bin/env python
+# ruff: noqa: T201
+from stay import StayParser, Stayspace
+
+
+class CLIInput(Stayspace):
+    name: str
+    age: int
+
+def main() -> None:
+
+    parser = StayParser(namespace_cls=CLIInput)
+
+    parser.add_argument("--name", type=str)
+    parser.add_argument("--age", type=int)
+
+    args = parser.parse_args()
+
+    print(f"Hello {args.name}. You are {args.age} years old")
+
+if __name__ == "__main__":
+    main()
+```
+
+### Mutually exclusive groups
+
+Unfortunately, python's typing system is not robust enough to have a nice way to have multiple/an arbitrary number types as the ``namespace_cls`` input.
+You have to fake it with combining your ``Stayspace``s into one class and using that as input to ``namespace_cls``.
+You are still able to type the generic as the union of your types and then you can use a ``TypeIs`` or ``TypeGuard`` (depending on your python version) to pick out the type.
+
+```python
+#!/usr/bin/env python
+# ruff: noqa: T201
+
+from typing_extensions import TypeIs
+
+from stay import StayParser, Stayspace
+
+
+class CLIInput1(Stayspace):
+    foo: int
+
+class CLIInput2(Stayspace):
+    bar: str
+
+class CLICombined(CLIInput1, CLIInput2):
+    ...
+
+def is_inp_1(inp: CLIInput1|CLIInput2) -> TypeIs[CLIInput1]:
+    return "foo" in inp
+
+def main() -> None:
+
+    parser = StayParser[CLIInput1|CLIInput2](namespace_cls=CLICombined)
+
+    meg = parser.add_mutually_exclusive_group(required=True)
+    meg.add_argument("--foo", type=int)
+    meg.add_argument("--bar", type=str)
+
+    args = parser.parse_args()
+
+    if is_inp_1(args):
+        print(f"You inputted foo with a value of {args.foo}")
+    else:
+        print(f"You inputted bar with a value of {args.bar}")
+
+if __name__ == "__main__":
+    main()
+```
