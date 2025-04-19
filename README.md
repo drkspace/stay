@@ -39,7 +39,7 @@ pip install -U TODO
 To install the most recent dev version
 
 ```bash
-git clone TODO
+git clone https://github.com/drkspace/stay
 cd stay
 pip install .
 ```
