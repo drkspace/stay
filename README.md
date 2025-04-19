@@ -33,7 +33,7 @@ reveal_type(args.invalid) # Type Error
 To install from PyPi:
 
 ```bash
-pip install -U TODO
+pip install -U py-stay
 ```
 
 To install the most recent dev version
@@ -92,7 +92,7 @@ Unfortunately, python's typing system is not robust enough to have a nice way to
 You have to fake it with combining your ``Stayspace``s into one class and using that as input to ``namespace_cls``.
 You are still able to type the generic as the union of your types and then you can use a ``TypeIs`` or ``TypeGuard`` (depending on your python version) to pick out the type.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > If you use the below strategy of creating a subclass of 2 ``Stayspace``s, any methods or ``ClassVar``s you add to them might interfere with eachother.
 
 
