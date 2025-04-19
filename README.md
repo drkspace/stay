@@ -5,7 +5,7 @@
 [![ruff-action](https://github.com/drkspace/stay/actions/workflows/ruff_action.yml/badge.svg?branch=main)](https://github.com/drkspace/stay/actions/workflows/ruff_action.yml)
 [![Tests](https://github.com/drkspace/stay/actions/workflows/tests_action.yml/badge.svg)](https://github.com/drkspace/stay/actions/workflows/tests_action.yml)
 
-Add typing to your argparse CLIs.
+Add typing to your argparse CLIs without having to modify your current parsers.
 
 Example:
 
@@ -131,3 +131,9 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 ```
+
+### Subparser
+
+Subparsers act just like (mutually exclusive) groups.
+In order to match with how argparse behaves, the results of a subparser will be "flat".
+You can use ``TypeIs``/``TypeGuard`` to narrow a ``Stayspace`` to the one for a specific subparser.
