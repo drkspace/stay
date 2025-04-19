@@ -9,3 +9,6 @@ dist: clean ## builds source and wheel package
 
 clean:
 	rm -rf .mypy_cache .pytest_cache .ruff_cache build .coverage htmlcov
+
+pre-commit-install:
+	pre-commit install
