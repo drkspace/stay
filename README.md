@@ -2,10 +2,13 @@
 
 **S**imple **T**yped **A**rgparse, **Y**es
 
+![PyPI - Version](https://img.shields.io/pypi/v/py-stay)
 [![ruff-action](https://github.com/drkspace/stay/actions/workflows/ruff_action.yml/badge.svg?branch=main)](https://github.com/drkspace/stay/actions/workflows/ruff_action.yml)
 [![Tests](https://github.com/drkspace/stay/actions/workflows/tests_action.yml/badge.svg)](https://github.com/drkspace/stay/actions/workflows/tests_action.yml)
 [![Type Checker](https://github.com/drkspace/stay/actions/workflows/mypy_action.yml/badge.svg)](https://github.com/drkspace/stay/actions/workflows/mypy_action.yml)
-[![PyPi](https://github.com/drkspace/stay/actions/workflows/publish.yml/badge.svg)](https://github.com/drkspace/stay/actions/workflows/publish.yml)
+[![PyPi Upload](https://github.com/drkspace/stay/actions/workflows/publish.yml/badge.svg)](https://github.com/drkspace/stay/actions/workflows/publish.yml)
+![PyPI - License](https://img.shields.io/pypi/l/py-stay)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/py-stay)
 
 Add typing to your argparse CLIs without having to modify your current parsers.
 
