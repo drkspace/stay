@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "stay"
+name = "py-stay"
 version = "0.2.0"
 description = "Simple Typed Argparse, Yes"
 readme = "README.md"
