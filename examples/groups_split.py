@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # ruff: noqa: T201
 
+from typing import Union
+
 from typing_extensions import TypeIs
 
 from stay import StayParser, Stayspace
@@ -17,12 +19,12 @@ class CLIInput2(Stayspace):
 class CLICombined(CLIInput1, CLIInput2): ...
 
 
-def is_inp_1(inp: CLIInput1 | CLIInput2) -> TypeIs[CLIInput1]:
+def is_inp_1(inp: Union[CLIInput1, CLIInput2]) -> TypeIs[CLIInput1]:
     return "foo" in inp
 
 
 def main() -> None:
-    parser = StayParser[CLIInput1 | CLIInput2](namespace_cls=CLICombined)
+    parser = StayParser[Union[CLIInput1, CLIInput2]](namespace_cls=CLICombined)
 
     meg = parser.add_mutually_exclusive_group(required=True)
     meg.add_argument("--foo", type=int)

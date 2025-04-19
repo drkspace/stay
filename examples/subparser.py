@@ -2,6 +2,7 @@
 # ruff: noqa: T201, E501
 
 from pathlib import Path
+from typing import Union
 
 from typing_extensions import TypeIs
 
@@ -23,12 +24,12 @@ class JSONOutput(MainInputs):
 class CLICombined(CSVOutput, JSONOutput): ...
 
 
-def is_csv(inp: CSVOutput | JSONOutput) -> TypeIs[CSVOutput]:
+def is_csv(inp: Union[CSVOutput, JSONOutput]) -> TypeIs[CSVOutput]:
     return "delimiter" in inp
 
 
 def main() -> None:
-    parser = StayParser[CSVOutput | JSONOutput](namespace_cls=CLICombined)
+    parser = StayParser[Union[CSVOutput, JSONOutput]](namespace_cls=CLICombined)
 
     parser.add_argument("file", type=Path)
 

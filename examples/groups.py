@@ -1,12 +1,14 @@
 #!/usr/bin/env python
 # ruff: noqa: T201
 
+from typing import Optional
+
 from stay import StayParser, Stayspace
 
 
 class CLIInput(Stayspace):
-    foo: int | None
-    bar: str | None
+    foo: Optional[int]
+    bar: Optional[str]
 
 
 def main() -> None:
