@@ -54,6 +54,11 @@ If you are proposing a feature:
 * Remember that this is a volunteer-driven project, and that contributions
   are welcome :)
 
+AI
+------------
+
+No AI generated code allowed.
+
 Get Started!
 ------------
 
@@ -107,26 +112,6 @@ Before you submit a pull request, check that it meets these guidelines:
    https://travis-ci.com/drkspace/stay/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
-Tips
-----
-
-To run a subset of tests::
-
-$ pytest tests.test_stay
-
-
-Deploying
----------
-
-A reminder for the maintainers on how to deploy.
-Make sure all your changes are committed (including an entry in HISTORY.rst).
-Then run::
-
-$ bump2version patch # possible: major / minor / patch
-$ git push
-$ git push --tags
-
-Travis will then deploy to PyPI if tests pass.
 
 Code of Conduct
 ---------------
