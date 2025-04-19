@@ -5,12 +5,11 @@ from stay import StayParser, Stayspace
 
 
 class CLIInput(Stayspace):
-    foo: int|None
-    bar: str|None
+    foo: int | None
+    bar: str | None
 
 
 def main() -> None:
-
     parser = StayParser(namespace_cls=CLIInput)
 
     meg = parser.add_mutually_exclusive_group()
@@ -25,6 +24,7 @@ def main() -> None:
         print(f"You inputted bar with a value of {args.bar}")
     else:
         print("You didn't provide anything")
+
 
 if __name__ == "__main__":
     main()

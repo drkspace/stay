@@ -7,8 +7,8 @@ class CLIInput(Stayspace):
     name: str
     age: int
 
-def main() -> None:
 
+def main() -> None:
     parser = StayParser(namespace_cls=CLIInput)
 
     parser.add_argument("--name", type=str)
@@ -17,6 +17,7 @@ def main() -> None:
     args = parser.parse_args()
 
     print(f"Hello {args.name}. You are {args.age} years old")
+
 
 if __name__ == "__main__":
     main()

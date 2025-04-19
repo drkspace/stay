@@ -6,10 +6,9 @@ from typing_extensions import override
 _T = TypeVar("_T", bound="Stayspace")
 _U = TypeVar("_U", bound="Stayspace")
 
+
 class InvalidParentParserError(Exception):
-    def __init__(self,
-                 this_parser: "StayParser[_T]",
-                 parent_parser: "StayParser[_U]") -> None:
+    def __init__(self, this_parser: "StayParser[_T]", parent_parser: "StayParser[_U]") -> None:
         super().__init__(
             f"Incompatible parent parser {parent_parser}. "
             f"{parent_parser._namespace_cls} is not a superclass of {this_parser._namespace_cls}."  # noqa: SLF001
@@ -34,7 +33,7 @@ class StayParser(ArgumentParser, Generic[_T]):
         parents: Sequence[ArgumentParser] = [],  # Why python...
         **kwargs: Any,
     ) -> None:
-        super().__init__(*args, parents=parents, **kwargs) # type: ignore
+        super().__init__(*args, parents=parents, **kwargs)  # type: ignore
 
         self._namespace_cls = namespace_cls
 
@@ -44,7 +43,7 @@ class StayParser(ArgumentParser, Generic[_T]):
                     raise InvalidParentParserError(self, p)
 
     @override
-    def parse_args( # type: ignore
+    def parse_args(  # type: ignore
         self,
         args: Optional[Sequence[str]] = None,
         namespace: Optional[Type[_T]] = None,
