@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stay"
-version = "0.1.0"
+version = "0.2.0"
 description = "Simple Typed Argparse, Yes"
 readme = "README.md"
 authors = [
@@ -138,7 +138,7 @@ disable_error_code = "attr-defined"
 
 
 [tool.bumpversion]
-current_version = "0.1.0"
+current_version = "0.2.0"
 parse = "(?P<major>\\d+)\\.(?P<minor>\\d+)\\.(?P<patch>\\d+)"
 serialize = ["{major}.{minor}.{patch}"]
 search = "{current_version}"
