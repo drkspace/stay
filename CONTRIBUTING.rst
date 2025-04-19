@@ -35,12 +35,17 @@ Implement Features
 Look through the GitHub issues for features. Anything tagged with "enhancement"
 and "help wanted" is open to whoever wants to implement it.
 
-Write Documentation
+Write Documentation and examples
 ~~~~~~~~~~~~~~~~~~~
 
 Stay could always use more documentation, whether as part of the
 official Stay docs, in docstrings, or even on the web in blog posts,
 articles, and such.
+
+If you create a new feature or significantly change an existing one,
+you should add an example to the examples folder or update existing
+ones. Examples should always be working to make it easier for newcomers
+to use stay.
 
 Submit Feedback
 ~~~~~~~~~~~~~~~
@@ -67,13 +72,12 @@ Ready to contribute? Here's how to set up `stay` for local development.
 1. Fork the `stay` repo on GitHub.
 2. Clone your fork locally::
 
-    $ git clone git@github.com:your_name_here/stay.git
+    $ git clone git@github.com:drkspace/stay.git
 
-3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
+3. Install your local copy. Use a venv or conda as you see fit::
 
-    $ mkvirtualenv stay
     $ cd stay/
-    $ python setup.py develop
+    $ pip install ".[dev]"
 
 4. Create a branch for local development::
 
@@ -81,15 +85,12 @@ Ready to contribute? Here's how to set up `stay` for local development.
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the
-   tests, including testing other Python versions with tox::
+5. When you're done making changes, check that your changes pass ruff, the
+   tests, and the type checker. Also, make sure that your code is formatted correctly::
 
-    $ make lint
+    $ ruff check
     $ make test
-    Or
-    $ make test-all
-
-   To get flake8 and tox, just pip install them into your virtualenv.
+    $ ruff format
 
 6. Commit your changes and push your branch to GitHub::
 
